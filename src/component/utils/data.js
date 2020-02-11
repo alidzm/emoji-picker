@@ -72,6 +72,6 @@ const uncompress = (data) => {
   return data
 }
 
-module.exports = {
+export {
   uncompress
-}
+};

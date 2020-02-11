@@ -1,23 +1,28 @@
 {
   "name": "emoji-picker",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/vue-popper.min.js",
+  "description": "Vue emoji picker",
+  "main": "dist/emoji-picker.min.js",
+  "module": "dist/emoji-picker.min.js",
+  "jsnext:main": "src/index.js",
+  "unpkg": "dist/emoji-picker.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "rollup -c ./build/rollup.config.js && cross-env NODE_ENV=production rollup -c ./build/rollup.config.js"
   },
   "author": "Dzmitry Aliaksandrau <qarz@tut.by>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.8.4",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.4.2",
-    "vue-loader": "^15.8.3",
-    "vue-style-loader": "^4.1.2",
-    "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.41.6",
-    "webpack-cli": "^4.0.0-beta.2"
+    "@rollup/plugin-json": "^4.0.2",
+    "cross-env": "^7.0.0",
+    "rollup": "^1.31.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.6",
+    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-vue": "^5.1.6",
+    "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
     "@popperjs/core": "^2.0.6"
