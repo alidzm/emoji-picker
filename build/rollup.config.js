@@ -27,6 +27,7 @@ export default {
     babel({
       runtimeHelpers: true,
       externalHelpers: false,
+      plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/plugin-transform-spread']
     }),
     (isProduction && terser())
   ],

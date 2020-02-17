@@ -4,6 +4,75 @@ const customSVGs = {
   arrow: `<svg version="1.1" class="emoji-select__arrow" viewBox="0 0 256 256" width="1em" height="1em"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor"><path d="M38.399,76.8c1.637,0,3.274,0.625,4.524,1.875l85.075,85.076l85.075-85.076c2.5-2.5,6.55-2.5,9.05,0s2.5,6.55,0,9.05  l-89.6,89.601c-2.5,2.5-6.551,2.5-9.051,0l-89.6-89.601c-2.5-2.5-2.5-6.55,0-9.05C35.124,77.425,36.762,76.8,38.399,76.8z"/></svg>`
 };
 
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+}
+
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
 const SVGs = {
   activity: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 0C5.373 0 0 5.372 0 12c0 6.627 5.373 12 12 12 6.628 0 12-5.373 12-12 0-6.628-5.372-12-12-12m9.949 11H17.05c.224-2.527 1.232-4.773 1.968-6.113A9.966 9.966 0 0 1 21.949 11M13 11V2.051a9.945 9.945 0 0 1 4.432 1.564c-.858 1.491-2.156 4.22-2.392 7.385H13zm-2 0H8.961c-.238-3.165-1.536-5.894-2.393-7.385A9.95 9.95 0 0 1 11 2.051V11zm0 2v8.949a9.937 9.937 0 0 1-4.432-1.564c.857-1.492 2.155-4.221 2.393-7.385H11zm4.04 0c.236 3.164 1.534 5.893 2.392 7.385A9.92 9.92 0 0 1 13 21.949V13h2.04zM4.982 4.887C5.718 6.227 6.726 8.473 6.951 11h-4.9a9.977 9.977 0 0 1 2.931-6.113M2.051 13h4.9c-.226 2.527-1.233 4.771-1.969 6.113A9.972 9.972 0 0 1 2.051 13m16.967 6.113c-.735-1.342-1.744-3.586-1.968-6.113h4.899a9.961 9.961 0 0 1-2.931 6.113"/></svg>`,
   custom: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g transform="translate(2.000000, 1.000000)"><rect id="Rectangle" x="8" y="0" width="3" height="21" rx="1.5"></rect><rect id="Rectangle" transform="translate(9.843, 10.549) rotate(60) translate(-9.843, -10.549) " x="8.343" y="0.049" width="3" height="21" rx="1.5"></rect><rect id="Rectangle" transform="translate(9.843, 10.549) rotate(-60) translate(-9.843, -10.549) " x="8.343" y="0.049" width="3" height="21" rx="1.5"></rect></g></svg>`,
@@ -358,7 +427,7 @@ function getData(_emoji, skin, set, data) {
 }
 
 function getSanitizedData() {
-  return sanitize(getData(...arguments));
+  return sanitize(getData.apply(void 0, arguments));
 }
 
 function sanitize(emoji) {
@@ -628,15 +697,14 @@ const PickerProps = {
   }
 };
 
-//
 const SHEET_COLUMNS = 52;
 var script$1 = {
-  props: { ...EmojiProps,
+  props: _objectSpread2({}, EmojiProps, {
     data: {
       type: Object,
       required: true
     }
-  },
+  }),
 
   data() {
     return {
@@ -46942,7 +47010,6 @@ var data = {
 	aliases: aliases
 };
 
-//
 const I18N = {
   search: 'Search',
   notfound: 'No Emoji Found',
@@ -46967,6 +47034,8 @@ var script$3 = {
   },
 
   created() {
+    var _this$categories;
+
     let categories = this.mutableData.categories.map(c => {
       let {
         id,
@@ -46984,7 +47053,9 @@ var script$3 = {
         emojis
       };
     });
-    this.categories.push(...categories);
+
+    (_this$categories = this.categories).push.apply(_this$categories, _toConsumableArray(categories));
+
     this.categories[0].first = true;
     this.activeCategory = this.filteredCategories[0];
   },
@@ -46998,8 +47069,7 @@ var script$3 = {
     };
   },
 
-  props: { ...PickerProps
-  },
+  props: _objectSpread2({}, PickerProps),
   computed: {
     filteredCategories() {
       return this.categories.filter(category => {
@@ -49382,64 +49452,57 @@ var __vue_render__$5 = function() {
     "div",
     { ref: "emojiWrapper", staticClass: "emoji-select__wrapper" },
     [
-      _c(
-        "popper",
-        {
-          ref: "popperChild",
-          attrs: { trigger: "click", options: { placement: "top" } }
-        },
-        [
-          _c("input", {
-            directives: [
+      _c("popper", { ref: "popperChild", attrs: { trigger: "click" } }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.value.label,
+              expression: "value.label"
+            }
+          ],
+          attrs: {
+            slot: "reference",
+            type: "text",
+            autocomplete: "off",
+            readonly: "readonly"
+          },
+          domProps: { value: _vm.value.label },
+          on: {
+            click: _vm.onSelectClick,
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.value, "label", $event.target.value);
+            }
+          },
+          slot: "reference"
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "popper" },
+          [
+            _c(
+              "div",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.value.label,
-                expression: "value.label"
-              }
-            ],
-            attrs: {
-              slot: "reference",
-              type: "text",
-              autocomplete: "off",
-              readonly: "readonly"
-            },
-            domProps: { value: _vm.value.label },
-            on: {
-              click: _vm.onSelectClick,
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.value, "label", $event.target.value);
-              }
-            },
-            slot: "reference"
-          }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "popper" },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "emoji-select__option",
-                  class: { selected: _vm.no === _vm.value.value },
-                  on: { click: _vm.onNoClick }
-                },
-                [_vm._v("Нет")]
-              ),
-              _vm._v(" "),
-              _c("emoji-picker", {
-                attrs: { i18n: _vm.i18n },
-                on: { select: _vm.onEmojiSelect }
-              })
-            ],
-            1
-          )
-        ]
-      ),
+                staticClass: "emoji-select__option",
+                class: { selected: _vm.no === _vm.value.value },
+                on: { click: _vm.onNoClick }
+              },
+              [_vm._v("Нет")]
+            ),
+            _vm._v(" "),
+            _c("emoji-picker", {
+              attrs: { i18n: _vm.i18n },
+              on: { select: _vm.onEmojiSelect }
+            })
+          ],
+          1
+        )
+      ]),
       _vm._v(" "),
       _c("span", { staticClass: "emoji-select__suffix" }, [
         _c("span", {
