@@ -1,6 +1,6 @@
 <template>
   <div class="emoji-select__wrapper" ref="emojiWrapper">
-    <popper trigger="click" ref="popperChild">
+    <popper trigger="click" :options="{placement: 'auto'}" ref="popperChild">
       <input slot="reference" type="text" autocomplete="off" readonly="readonly" v-model="value.label" @click="onSelectClick" />
       <div class="popper">
         <div class="emoji-select__option" :class="{ 'selected': no === value.value }" @click="onNoClick">Нет</div>

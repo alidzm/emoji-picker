@@ -49452,57 +49452,64 @@ var __vue_render__$5 = function() {
     "div",
     { ref: "emojiWrapper", staticClass: "emoji-select__wrapper" },
     [
-      _c("popper", { ref: "popperChild", attrs: { trigger: "click" } }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.value.label,
-              expression: "value.label"
-            }
-          ],
-          attrs: {
-            slot: "reference",
-            type: "text",
-            autocomplete: "off",
-            readonly: "readonly"
-          },
-          domProps: { value: _vm.value.label },
-          on: {
-            click: _vm.onSelectClick,
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.value, "label", $event.target.value);
-            }
-          },
-          slot: "reference"
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "popper" },
-          [
-            _c(
-              "div",
+      _c(
+        "popper",
+        {
+          ref: "popperChild",
+          attrs: { trigger: "click", options: { placement: "auto" } }
+        },
+        [
+          _c("input", {
+            directives: [
               {
-                staticClass: "emoji-select__option",
-                class: { selected: _vm.no === _vm.value.value },
-                on: { click: _vm.onNoClick }
-              },
-              [_vm._v("Нет")]
-            ),
-            _vm._v(" "),
-            _c("emoji-picker", {
-              attrs: { i18n: _vm.i18n },
-              on: { select: _vm.onEmojiSelect }
-            })
-          ],
-          1
-        )
-      ]),
+                name: "model",
+                rawName: "v-model",
+                value: _vm.value.label,
+                expression: "value.label"
+              }
+            ],
+            attrs: {
+              slot: "reference",
+              type: "text",
+              autocomplete: "off",
+              readonly: "readonly"
+            },
+            domProps: { value: _vm.value.label },
+            on: {
+              click: _vm.onSelectClick,
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.value, "label", $event.target.value);
+              }
+            },
+            slot: "reference"
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "popper" },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "emoji-select__option",
+                  class: { selected: _vm.no === _vm.value.value },
+                  on: { click: _vm.onNoClick }
+                },
+                [_vm._v("Нет")]
+              ),
+              _vm._v(" "),
+              _c("emoji-picker", {
+                attrs: { i18n: _vm.i18n },
+                on: { select: _vm.onEmojiSelect }
+              })
+            ],
+            1
+          )
+        ]
+      ),
       _vm._v(" "),
       _c("span", { staticClass: "emoji-select__suffix" }, [
         _c("span", {
