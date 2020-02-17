@@ -4,7 +4,7 @@
       <input slot="reference" type="text" autocomplete="off" readonly="readonly" v-model="value.label" @click="onSelectClick" />
       <div class="popper">
         <div class="emoji-select__option" :class="{ 'selected': no === value.value }" @click="onNoClick">Нет</div>
-        <emoji-picker @select="onEmojiSelect" />
+        <emoji-picker @select="onEmojiSelect" :i18n="i18n" />
       </div>
     </popper>
     <span class="emoji-select__suffix">
@@ -35,6 +35,9 @@ export default {
     onEmojiSelect: {
       type: Function,
       required: true
+    },
+    i18n: {
+      type: Object
     }
   },
   components: {

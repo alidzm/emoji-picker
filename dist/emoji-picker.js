@@ -178,7 +178,7 @@ __vue_render__._withStripped = true;
   /* style */
   const __vue_inject_styles__ = undefined;
   /* scoped */
-  const __vue_scope_id__ = "data-v-4c6805c0";
+  const __vue_scope_id__ = "data-v-1e768626";
   /* module identifier */
   const __vue_module_identifier__ = undefined;
   /* functional template */
@@ -796,7 +796,7 @@ __vue_render__$1._withStripped = true;
   /* style */
   const __vue_inject_styles__$1 = undefined;
   /* scoped */
-  const __vue_scope_id__$1 = "data-v-60703864";
+  const __vue_scope_id__$1 = "data-v-5f44577e";
   /* module identifier */
   const __vue_module_identifier__$1 = undefined;
   /* functional template */
@@ -947,7 +947,7 @@ __vue_render__$2._withStripped = true;
   /* style */
   const __vue_inject_styles__$2 = undefined;
   /* scoped */
-  const __vue_scope_id__$2 = "data-v-656d44ca";
+  const __vue_scope_id__$2 = "data-v-567dcf55";
   /* module identifier */
   const __vue_module_identifier__$2 = undefined;
   /* functional template */
@@ -47170,7 +47170,7 @@ __vue_render__$3._withStripped = true;
   /* style */
   const __vue_inject_styles__$3 = undefined;
   /* scoped */
-  const __vue_scope_id__$3 = "data-v-c376aa1e";
+  const __vue_scope_id__$3 = "data-v-bc7a7588";
   /* module identifier */
   const __vue_module_identifier__$3 = undefined;
   /* functional template */
@@ -49317,6 +49317,9 @@ var script$5 = {
     onEmojiSelect: {
       type: Function,
       required: true
+    },
+    i18n: {
+      type: Object
     }
   },
   components: {
@@ -49428,7 +49431,10 @@ var __vue_render__$5 = function() {
                 [_vm._v("Нет")]
               ),
               _vm._v(" "),
-              _c("emoji-picker", { on: { select: _vm.onEmojiSelect } })
+              _c("emoji-picker", {
+                attrs: { i18n: _vm.i18n },
+                on: { select: _vm.onEmojiSelect }
+              })
             ],
             1
           )
