@@ -47418,7 +47418,6 @@ function getParentNode(element) {
 }
 
 function getComputedStyle(element) {
-  console.log(getWindow(element).getComputedStyle(element));
   return getWindow(element).getComputedStyle(element);
 }
 
