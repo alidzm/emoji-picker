@@ -262,6 +262,12 @@
 .emoji-select__wrapper input:hover {
   border-color: #c0c4cc;
 }
+.emoji-select__wrapper input:disabled {
+  background-color: #F5F7FA;
+  border-color: #E4E7ED;
+  color: #C0C4CC;
+  cursor: not-allowed;
+}
 .emoji-select__suffix {
   color: #c0c4cc;
   height: 100%;

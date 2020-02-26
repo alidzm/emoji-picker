@@ -49391,6 +49391,10 @@ var script$5 = {
     },
     i18n: {
       type: Object
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
@@ -49471,6 +49475,7 @@ var __vue_render__$5 = function() {
             ],
             attrs: {
               slot: "reference",
+              disabled: _vm.disabled,
               type: "text",
               autocomplete: "off",
               readonly: "readonly"

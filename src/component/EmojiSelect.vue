@@ -1,7 +1,7 @@
 <template>
   <div class="emoji-select__wrapper" ref="emojiWrapper">
     <popper trigger="click" :options="{placement: 'auto'}" ref="popperChild">
-      <input slot="reference" type="text" autocomplete="off" readonly="readonly" v-model="value.label" @click="onSelectClick" />
+      <input :disabled="disabled" slot="reference" type="text" autocomplete="off" readonly="readonly" v-model="value.label" @click="onSelectClick" />
       <div class="popper">
         <div class="emoji-select__option" :class="{ 'selected': no === value.value }" @click="onNoClick">Нет</div>
         <emoji-picker @select="onEmojiSelect" :i18n="i18n" />
@@ -38,6 +38,10 @@ export default {
     },
     i18n: {
       type: Object
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
@@ -116,6 +120,13 @@ export default {
 
 .emoji-select__wrapper input:hover {
   border-color: #c0c4cc;
+}
+
+.emoji-select__wrapper input:disabled {
+  background-color: #F5F7FA;
+  border-color: #E4E7ED;
+  color: #C0C4CC;
+  cursor: not-allowed;
 }
 
 .emoji-select__suffix {
