@@ -139,7 +139,7 @@ function on(element, event, handler) {
     },
     mounted() {
       this.referenceElm = this.reference || this.$slots.reference[0].elm;
-      this.popper = this.$slots.default[0].elm;
+      this.popper = this.$slots.default[this.$slots.default.length - 1].elm;
       switch (this.trigger) {
         case 'clickToOpen':
           on(this.referenceElm, 'click', this.doShow);
